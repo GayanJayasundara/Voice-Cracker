@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        recordingLbl.hidden = true;
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -21,5 +22,15 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func recordAudio(sender: UIButton) {
+        //TODO: Show Recording inprogres
+        //TODO: Actually record voice
+        recordingLbl.hidden = false;
+    }
+    @IBOutlet weak var recordingLbl: UILabel!
+    
+    @IBAction func stopRecording(sender: UIButton) {
+        recordingLbl.hidden = true;
+    }
 }
 
