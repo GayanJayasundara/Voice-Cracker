@@ -104,10 +104,10 @@
             </objects>
             <point key="canvasLocation" x="1222.5" y="370"/>
         </scene>
-        <!--View Controller-->
+        <!--Play Voice View Controller-->
         <scene sceneID="W64-zA-edH">
             <objects>
-                <viewController id="ihz-ua-gdH" sceneMemberID="viewController">
+                <viewController id="ihz-ua-gdH" customClass="PlayVoiceViewController" customModule="Voice_Cracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wRU-A7-zOd"/>
                         <viewControllerLayoutGuide type="bottom" id="LVv-bW-keD"/>
