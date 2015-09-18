@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="88B-uz-gOw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Voice Cracker-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Voice_Cracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -44,6 +44,7 @@
                                 <state key="normal" image="StopRecording"/>
                                 <connections>
                                     <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fPg-2u-v1b"/>
+                                    <segue destination="ihz-ua-gdH" kind="show" id="ApX-DZ-b3t"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -67,12 +68,12 @@
                                 <exclude reference="SQ3-kB-kSx"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="TMR-BX-igV"/>
-                                <exclude reference="cY8-ll-h5f"/>
-                                <exclude reference="5bD-ae-hzE"/>
-                                <exclude reference="fCI-ek-6cF"/>
                                 <exclude reference="FhH-f6-ELJ"/>
                                 <exclude reference="KJF-tZ-vn1"/>
+                                <exclude reference="5bD-ae-hzE"/>
+                                <exclude reference="fCI-ek-6cF"/>
+                                <exclude reference="TMR-BX-igV"/>
+                                <exclude reference="cY8-ll-h5f"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -81,25 +82,62 @@
                                 <include reference="SQ3-kB-kSx"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="FhH-f6-ELJ"/>
+                                <include reference="KJF-tZ-vn1"/>
+                                <include reference="5bD-ae-hzE"/>
+                                <include reference="fCI-ek-6cF"/>
                                 <exclude reference="3b5-dZ-CKU"/>
                                 <exclude reference="I5W-IU-Tbc"/>
                                 <include reference="TMR-BX-igV"/>
                                 <exclude reference="Yg8-rA-B5l"/>
                                 <include reference="cY8-ll-h5f"/>
-                                <include reference="5bD-ae-hzE"/>
-                                <include reference="fCI-ek-6cF"/>
-                                <include reference="FhH-f6-ELJ"/>
-                                <include reference="KJF-tZ-vn1"/>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Voice Cracker" id="ydb-Ge-Ptf"/>
                     <connections>
+                        <outlet property="RecordEndBtn" destination="SQ3-kB-kSx" id="hAp-2V-76a"/>
                         <outlet property="recordingLbl" destination="Imu-zs-CHS" id="4dg-Sp-BAw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="304.5" y="370"/>
+            <point key="canvasLocation" x="1222.5" y="370"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="W64-zA-edH">
+            <objects>
+                <viewController id="ihz-ua-gdH" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wRU-A7-zOd"/>
+                        <viewControllerLayoutGuide type="bottom" id="LVv-bW-keD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bAP-HP-Pp5">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vx8-wy-YgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1984.5" y="361"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="P7d-sD-ELs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="88B-uz-gOw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mGI-bD-9mt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="d9j-LF-EjJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EaM-Ir-avq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="289.5" y="370"/>
         </scene>
     </scenes>
     <resources>

@@ -10,9 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var recordingLbl: UILabel!
+    @IBOutlet weak var RecordEndBtn: UIButton!
+    
+    override func viewWillAppear(animated: Bool) {
+        recordingLbl.hidden = true;
+        RecordEndBtn.hidden = true;
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        recordingLbl.hidden = true;
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -26,11 +34,12 @@ class ViewController: UIViewController {
         //TODO: Show Recording inprogres
         //TODO: Actually record voice
         recordingLbl.hidden = false;
+        RecordEndBtn.hidden = false;
     }
-    @IBOutlet weak var recordingLbl: UILabel!
     
     @IBAction func stopRecording(sender: UIButton) {
         recordingLbl.hidden = true;
+        RecordEndBtn.hidden = true
     }
 }
 
