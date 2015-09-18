@@ -22,6 +22,8 @@ class PlayVoiceViewController: UIViewController {
     }
     
 
+    @IBAction func SnailVoice(sender: UIButton) {
+    }
     /*
     // MARK: - Navigation
 
