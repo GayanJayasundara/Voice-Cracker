@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SoundRecordViewController.swift
 //  Voice Cracker
 //
 //  Created by Gayan Jayasundara on 2015-09-17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SoundRecordViewController: UIViewController {
 
     @IBOutlet weak var recordingLbl: UILabel!
     @IBOutlet weak var RecordEndBtn: UIButton!
