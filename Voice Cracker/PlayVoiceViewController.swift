@@ -27,14 +27,14 @@ class PlayVoiceViewController: UIViewController,AVAudioPlayerDelegate {
 
     @IBAction func SnailVoice(sender: UIButton) {
         audioPlayer = self.AudioPlayerWithFile("everything", type: "mp3");
-        audioPlayer.stop();
+        audioPlayer.currentTime = 0;
         audioPlayer.rate = 0.5;
         audioPlayer.play();
     }
     
     @IBAction func KangarooVoice(sender: UIButton) {
         audioPlayer = self.AudioPlayerWithFile("everything", type: "mp3");
-        audioPlayer.stop();
+        audioPlayer.currentTime = 0;
         audioPlayer.rate = 2.0;
         audioPlayer.play()
     }
