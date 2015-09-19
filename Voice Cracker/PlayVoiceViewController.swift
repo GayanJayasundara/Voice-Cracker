@@ -27,9 +27,21 @@ class PlayVoiceViewController: UIViewController,AVAudioPlayerDelegate {
 
     @IBAction func SnailVoice(sender: UIButton) {
         audioPlayer = self.AudioPlayerWithFile("everything", type: "mp3");
+        audioPlayer.stop();
+        audioPlayer.rate = 0.5;
+        audioPlayer.play();
+    }
+    
+    @IBAction func KangarooVoice(sender: UIButton) {
+        audioPlayer = self.AudioPlayerWithFile("everything", type: "mp3");
+        audioPlayer.stop();
+        audioPlayer.rate = 2.0;
         audioPlayer.play()
     }
     
+    @IBAction func StopPlaying(sender: UIButton) {
+        audioPlayer.stop();
+    }
     func AudioPlayerWithFile(file:NSString, type:NSString) -> AVAudioPlayer  {
         let filepath = NSBundle.mainBundle().pathForResource(file as String, ofType: type as String)
         let audioURL = NSURL.fileURLWithPath(filepath!)
@@ -40,6 +52,7 @@ class PlayVoiceViewController: UIViewController,AVAudioPlayerDelegate {
         } catch {
             print("NO AUDIO PLAYER")
         }
+        audioPlayer?.enableRate = true;
         return audioPlayer!
     }
 }
