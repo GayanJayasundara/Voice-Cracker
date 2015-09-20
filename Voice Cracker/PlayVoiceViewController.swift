@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import AVFoundation
 
-class PlayVoiceViewController: UIViewController {
+class PlayVoiceViewController: UIViewController,AVAudioPlayerDelegate {
 
+    var audioPlayer: AVAudioPlayer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -23,15 +26,33 @@ class PlayVoiceViewController: UIViewController {
     
 
     @IBAction func SnailVoice(sender: UIButton) {
+        audioPlayer = self.AudioPlayerWithFile("everything", type: "mp3");
+        audioPlayer.currentTime = 0;
+        audioPlayer.rate = 0.5;
+        audioPlayer.play();
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func KangarooVoice(sender: UIButton) {
+        audioPlayer = self.AudioPlayerWithFile("everything", type: "mp3");
+        audioPlayer.currentTime = 0;
+        audioPlayer.rate = 2.0;
+        audioPlayer.play()
     }
-    */
-
+    
+    @IBAction func StopPlaying(sender: UIButton) {
+        audioPlayer.stop();
+    }
+    func AudioPlayerWithFile(file:NSString, type:NSString) -> AVAudioPlayer  {
+        let filepath = NSBundle.mainBundle().pathForResource(file as String, ofType: type as String)
+        let audioURL = NSURL.fileURLWithPath(filepath!)
+        var audioPlayer:AVAudioPlayer?
+        
+        do {
+            try audioPlayer = AVAudioPlayer(contentsOfURL: audioURL)
+        } catch {
+            print("NO AUDIO PLAYER")
+        }
+        audioPlayer?.enableRate = true;
+        return audioPlayer!
+    }
 }

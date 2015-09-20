@@ -8,7 +8,7 @@
         <!--Voice Cracker-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Voice_Cracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SoundRecordViewController" customModule="Voice_Cracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -124,39 +124,69 @@
                                     <action selector="SnailVoice:" destination="ihz-ua-gdH" eventType="touchUpInside" id="hEg-Ms-QX0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hy7-hM-IrJ">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="SpeedVoice"/>
+                                <connections>
+                                    <action selector="KangarooVoice:" destination="ihz-ua-gdH" eventType="touchUpInside" id="X0I-nS-Uku"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BOA-jN-00W">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="StopAudioPlay"/>
+                                <connections>
+                                    <action selector="StopPlaying:" destination="ihz-ua-gdH" eventType="touchUpInside" id="MbU-Cv-WaI"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90154529429999997" green="1" blue="0.62616254979999997" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="2UB-kd-zO7" firstAttribute="leading" secondItem="bAP-HP-Pp5" secondAttribute="leadingMargin" constant="30" id="1Fa-GK-Zgp">
                                 <variation key="widthClass=compact" constant="19"/>
                             </constraint>
+                            <constraint firstItem="BOA-jN-00W" firstAttribute="centerX" secondItem="bAP-HP-Pp5" secondAttribute="centerX" id="AnX-jI-edC"/>
+                            <constraint firstItem="hy7-hM-IrJ" firstAttribute="top" secondItem="wRU-A7-zOd" secondAttribute="bottom" constant="50" id="G8J-Fr-d1J"/>
                             <constraint firstItem="2UB-kd-zO7" firstAttribute="top" secondItem="wRU-A7-zOd" secondAttribute="bottom" constant="50" id="Qo1-p8-Cjp">
                                 <variation key="widthClass=compact" constant="47"/>
                             </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="hy7-hM-IrJ" secondAttribute="trailing" constant="30" id="dJN-62-Z2E"/>
+                            <constraint firstItem="LVv-bW-keD" firstAttribute="top" secondItem="BOA-jN-00W" secondAttribute="bottom" constant="50" id="qTC-x0-qPr"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="2UB-kd-zO7"/>
+                                <exclude reference="hy7-hM-IrJ"/>
+                                <exclude reference="BOA-jN-00W"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="1Fa-GK-Zgp"/>
                                 <exclude reference="Qo1-p8-Cjp"/>
+                                <exclude reference="G8J-Fr-d1J"/>
+                                <exclude reference="dJN-62-Z2E"/>
+                                <exclude reference="AnX-jI-edC"/>
+                                <exclude reference="qTC-x0-qPr"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="2UB-kd-zO7"/>
+                                <include reference="hy7-hM-IrJ"/>
+                                <include reference="BOA-jN-00W"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="1Fa-GK-Zgp"/>
                                 <include reference="Qo1-p8-Cjp"/>
+                                <include reference="G8J-Fr-d1J"/>
+                                <include reference="dJN-62-Z2E"/>
+                                <include reference="AnX-jI-edC"/>
+                                <include reference="qTC-x0-qPr"/>
                             </mask>
                         </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vx8-wy-YgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1984.5" y="361"/>
+            <point key="canvasLocation" x="1995" y="370"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="P7d-sD-ELs">
@@ -179,6 +209,8 @@
     </scenes>
     <resources>
         <image name="SlowVoice" width="100" height="100"/>
+        <image name="SpeedVoice" width="100" height="100"/>
+        <image name="StopAudioPlay" width="50" height="50"/>
         <image name="StopRecording" width="50" height="50"/>
         <image name="microhone" width="100" height="100"/>
     </resources>
