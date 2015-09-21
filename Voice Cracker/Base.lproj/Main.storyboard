@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="88B-uz-gOw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -45,7 +46,6 @@
                                 <state key="normal" image="StopRecording"/>
                                 <connections>
                                     <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fPg-2u-v1b"/>
-                                    <segue destination="ihz-ua-gdH" kind="show" id="ApX-DZ-b3t"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -99,6 +99,7 @@
                     <connections>
                         <outlet property="RecordEndBtn" destination="SQ3-kB-kSx" id="hAp-2V-76a"/>
                         <outlet property="recordingLbl" destination="Imu-zs-CHS" id="4dg-Sp-BAw"/>
+                        <segue destination="ihz-ua-gdH" kind="show" identifier="PlayAudio" id="p3a-3t-LlB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -159,12 +160,12 @@
                                 <exclude reference="BOA-jN-00W"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="qTC-x0-qPr"/>
                                 <exclude reference="1Fa-GK-Zgp"/>
                                 <exclude reference="Qo1-p8-Cjp"/>
+                                <exclude reference="AnX-jI-edC"/>
                                 <exclude reference="G8J-Fr-d1J"/>
                                 <exclude reference="dJN-62-Z2E"/>
-                                <exclude reference="AnX-jI-edC"/>
-                                <exclude reference="qTC-x0-qPr"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -174,12 +175,12 @@
                                 <include reference="BOA-jN-00W"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="qTC-x0-qPr"/>
                                 <include reference="1Fa-GK-Zgp"/>
                                 <include reference="Qo1-p8-Cjp"/>
+                                <include reference="AnX-jI-edC"/>
                                 <include reference="G8J-Fr-d1J"/>
                                 <include reference="dJN-62-Z2E"/>
-                                <include reference="AnX-jI-edC"/>
-                                <include reference="qTC-x0-qPr"/>
                             </mask>
                         </variation>
                     </view>

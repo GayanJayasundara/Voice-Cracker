@@ -9,12 +9,14 @@
 import UIKit
 import AVFoundation
 
-class SoundRecordViewController: UIViewController {
+class SoundRecordViewController: UIViewController,AVAudioRecorderDelegate {
 
   @IBOutlet weak var recordingLbl: UILabel!
   @IBOutlet weak var RecordEndBtn: UIButton!
   
   var audioRecorder : AVAudioRecorder!
+  var recordedVoice : RecordedVoice!
+  
   override func viewWillAppear(animated: Bool) {
     recordingLbl.hidden = true;
     RecordEndBtn.hidden = true;
@@ -43,7 +45,10 @@ class SoundRecordViewController: UIViewController {
     recordingLbl.hidden = true
     RecordEndBtn.hidden = true
     if self.audioRecorder != nil {
-      audioRecorder.stop();
+      audioRecorder.stop()
+      let audioSession = AVAudioSession.sharedInstance()
+      try! audioSession.setActive(false)
+      
     } else{
     
     }
@@ -53,12 +58,14 @@ class SoundRecordViewController: UIViewController {
   func recordVoice() -> Bool {
     let docPath =  NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String;
     
-    let currentDateTime = NSDate()
-    let formatter = NSDateFormatter()
-    formatter.dateFormat = "ddMMyyyy-HHmmss"
-    let voiceClipName = formatter.stringFromDate(currentDateTime)+".wav"
+    //let currentDateTime = NSDate()
+    //let formatter = NSDateFormatter()
+    //formatter.dateFormat = "ddMMyyyy-HHmmss"
+    //let voiceClipName = formatter.stringFromDate(currentDateTime)+".wav"
     
-    let pathArray = [docPath, voiceClipName]
+    let recordingName = "my_audio.wav"
+    
+    let pathArray = [docPath, recordingName]
     let filePath = NSURL.fileURLWithPathComponents(pathArray)
     
     let session = AVAudioSession.sharedInstance()
@@ -66,6 +73,7 @@ class SoundRecordViewController: UIViewController {
     
     do {
       try audioRecorder = AVAudioRecorder(URL: filePath!, settings: [:])
+      audioRecorder.delegate = self
       audioRecorder.meteringEnabled = true
       audioRecorder.prepareToRecord()
       audioRecorder.record()
@@ -73,6 +81,20 @@ class SoundRecordViewController: UIViewController {
     } catch {
       print("NO AUDIO Recorder")
       return false
+    }
+  }
+  
+  func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
+    if (flag){
+      recordedVoice = RecordedVoice()
+      recordedVoice.filePathUrl = recorder.url
+      recordedVoice.title = recorder.url.lastPathComponent
+      
+      self.performSegueWithIdentifier("PlayAudio", sender: recordedVoice)
+    } else {
+      print("Recording was not successfull")
+      RecordEndBtn.enabled = true
+      RecordEndBtn.hidden = true
     }
   }
 }
