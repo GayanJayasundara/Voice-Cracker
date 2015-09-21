@@ -97,5 +97,14 @@ class SoundRecordViewController: UIViewController,AVAudioRecorderDelegate {
       RecordEndBtn.hidden = true
     }
   }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if (segue.identifier == "PlayAudio") {
+      let playAudio:PlayVoiceViewController = segue.destinationViewController as! PlayVoiceViewController
+      let data = sender as! RecordedVoice
+      playAudio.receivedAudio = data
+      
+    }
+  }
 }
 
