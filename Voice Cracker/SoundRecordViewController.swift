@@ -17,6 +17,7 @@ class SoundRecordViewController: UIViewController,AVAudioRecorderDelegate {
   var audioRecorder : AVAudioRecorder!
   var recordedVoice : RecordedVoice!
   
+  
   override func viewWillAppear(animated: Bool) {
     recordingLbl.hidden = true;
     RecordEndBtn.hidden = true;
