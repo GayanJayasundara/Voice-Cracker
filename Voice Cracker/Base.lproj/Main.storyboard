@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="88B-uz-gOw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -45,7 +46,6 @@
                                 <state key="normal" image="StopRecording"/>
                                 <connections>
                                     <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fPg-2u-v1b"/>
-                                    <segue destination="ihz-ua-gdH" kind="show" id="ApX-DZ-b3t"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -99,6 +99,7 @@
                     <connections>
                         <outlet property="RecordEndBtn" destination="SQ3-kB-kSx" id="hAp-2V-76a"/>
                         <outlet property="recordingLbl" destination="Imu-zs-CHS" id="4dg-Sp-BAw"/>
+                        <segue destination="ihz-ua-gdH" kind="show" identifier="PlayAudio" id="p3a-3t-LlB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -138,6 +139,13 @@
                                     <action selector="StopPlaying:" destination="ihz-ua-gdH" eventType="touchUpInside" id="MbU-Cv-WaI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yz0-Hz-ta1">
+                                <rect key="frame" x="73" y="392" width="100" height="100"/>
+                                <state key="normal" image="Chipmunk"/>
+                                <connections>
+                                    <action selector="ChipMunkVoice:" destination="ihz-ua-gdH" eventType="touchUpInside" id="qmB-00-KgX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90154529429999997" green="1" blue="0.62616254979999997" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -150,7 +158,9 @@
                                 <variation key="widthClass=compact" constant="47"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="hy7-hM-IrJ" secondAttribute="trailing" constant="30" id="dJN-62-Z2E"/>
+                            <constraint firstItem="LVv-bW-keD" firstAttribute="top" secondItem="yz0-Hz-ta1" secondAttribute="bottom" constant="150" id="p32-8E-Mrh"/>
                             <constraint firstItem="LVv-bW-keD" firstAttribute="top" secondItem="BOA-jN-00W" secondAttribute="bottom" constant="50" id="qTC-x0-qPr"/>
+                            <constraint firstItem="yz0-Hz-ta1" firstAttribute="leading" secondItem="bAP-HP-Pp5" secondAttribute="leadingMargin" constant="20" id="yPa-dI-DxJ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -161,9 +171,9 @@
                             <mask key="constraints">
                                 <exclude reference="1Fa-GK-Zgp"/>
                                 <exclude reference="Qo1-p8-Cjp"/>
+                                <exclude reference="AnX-jI-edC"/>
                                 <exclude reference="G8J-Fr-d1J"/>
                                 <exclude reference="dJN-62-Z2E"/>
-                                <exclude reference="AnX-jI-edC"/>
                                 <exclude reference="qTC-x0-qPr"/>
                             </mask>
                         </variation>
@@ -176,9 +186,9 @@
                             <mask key="constraints">
                                 <include reference="1Fa-GK-Zgp"/>
                                 <include reference="Qo1-p8-Cjp"/>
+                                <include reference="AnX-jI-edC"/>
                                 <include reference="G8J-Fr-d1J"/>
                                 <include reference="dJN-62-Z2E"/>
-                                <include reference="AnX-jI-edC"/>
                                 <include reference="qTC-x0-qPr"/>
                             </mask>
                         </variation>
@@ -186,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vx8-wy-YgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1995" y="370"/>
+            <point key="canvasLocation" x="2009" y="387"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="P7d-sD-ELs">
@@ -208,6 +218,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Chipmunk" width="100" height="100"/>
         <image name="SlowVoice" width="100" height="100"/>
         <image name="SpeedVoice" width="100" height="100"/>
         <image name="StopAudioPlay" width="50" height="50"/>
